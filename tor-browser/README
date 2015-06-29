@@ -1,0 +1,14 @@
+Scripts to download and install the Tor Browser
+
+download_current.sh	download the most recent (en-US) tor browser
+check_and_install.sh	check the download and install (unpack) to ~/.tbwser/curr/
+			an old installation is moved to .tbwser.old
+cleanup_old.sh		clean up (remove) the .tbwser.old directory
+
+The idea is that most people use the en-US tor browser and hence that version
+should be used. This can be changed using the LANG variable in the 
+download_current.sh script. The check_and_install.sh script keeps the previous
+version of the tor browser on the disk in order to prevent automatic deletion 
+of downloads or settings from that previous version at least for a little while.
+If an olddir already exists it warns the user and exits. 
+The olddir can be conveniently removed using the cleanup_old.sh script.

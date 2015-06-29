@@ -1,0 +1,7 @@
+# update-scripts
+Scripts to download, update, install 3rd party applications
+
+The repo currently contains stuff for the following:
+	tor-browser	Downloads and installs the (en-US) tor browser
+			into the users HOME directory.
+
