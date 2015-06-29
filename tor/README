@@ -1,0 +1,4 @@
+Scripts to download the tor source code
+
+download_current.sh	download the current tor source code tarball
+			and check it for integrity
