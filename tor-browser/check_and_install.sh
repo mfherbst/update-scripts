@@ -19,6 +19,7 @@
 
 TDIR="$HOME/.tbwser" # directory where the tor browser bundle is installed
 TRANSITIONS=("curr/Browser/Downloads") # folders which are copied over when updates are performed
+REMOVE_OLD=n # set to yes if you don't want to keep the old version
 
 ##################################################
 
@@ -35,9 +36,6 @@ if [ -d "$TDIR" ]; then
 	fi
 fi
 
-
-read -p "Do you want to keep a copy of the old install? (Y/n)" KEEP_OLD
-[ -z "$KEEP_OLD" ] && KEEP_OLD=y
 
 
 if [ ! -f "$NEWEST" ]; then
