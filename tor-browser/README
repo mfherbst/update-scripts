@@ -10,5 +10,6 @@ should be used. This can be changed using the LANG variable in the
 download_current.sh script. The check_and_install.sh script keeps the previous
 version of the tor browser on the disk in order to prevent automatic deletion 
 of downloads or settings from that previous version at least for a little while.
+Some files and folders (e.g. Downloads) are be migrated if the user whishes so.
 If an olddir already exists it warns the user and exits. 
 The olddir can be conveniently removed using the cleanup_old.sh script.
