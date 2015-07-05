@@ -47,5 +47,18 @@ tar xJ -C "$TDIR" -f "$NEWEST" || exit 1
 cd "$TDIR" || exit 1
 ln -s tor-browser* curr || exit 1
 
+
+# migrate directories in the TRANSITIONS-list to the new install
+read -p "Do you want to migrate files to new version? (y/N) " RES
+[ -z "$RES" ] && RES=n
+if [ "$RES" = y ]; then
+	TRANSITIONS=("curr/Browser/Downloads")
+	for dir in ${TRANSITIONS[@]}
+	do
+		mkdir -p $TDIR/$dir
+		cp -r --preserve=xattr $TDIR.old/$dir/* $TDIR/$dir
+	done
+fi
+
 echo "Successfully accompished."
 exit 0
