@@ -17,6 +17,11 @@
 # A copy of the GNU General Public License can be found in the 
 # file LICENSE or at <http://www.gnu.org/licenses/>.
 
+TDIR="$HOME/.tbwser" # directory where the tor browser bundle is installed
+TRANSITIONS=("curr/Browser/Downloads") # folders which are copied over when updates are performed
+
+##################################################
+
 NEWEST=`ls tor-browser-linux64-*.xz | sort -r -V | head -n1`
 read -e  -p "Enter Tor Version to install:  " -i "$NEWEST" NEWEST
 
@@ -31,7 +36,6 @@ if ! gpg --verify "$NEWEST.asc"; then
 	exit 1
 fi
 
-TDIR="$HOME/.tbwser"
 if [ -d "$TDIR" ]; then
 	if [ -d "$TDIR.old" ]; then
 		echo
@@ -58,7 +62,6 @@ ln -s tor-browser* curr || exit 1
 read -p "Do you want to migrate files to new version? (y/N) " RES
 [ -z "$RES" ] && RES=n
 if [ "$RES" = y ]; then
-	TRANSITIONS=("curr/Browser/Downloads")
 	for dir in ${TRANSITIONS[@]}; do
 		echo "   Migrating $(basename "$dir")"
 		mkdir -p $TDIR/$dir
