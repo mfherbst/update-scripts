@@ -34,9 +34,15 @@ fi
 TDIR="$HOME/.tbwser"
 if [ -d "$TDIR" ]; then
 	if [ -d "$TDIR.old" ]; then
-		echo "There already exists an oldir. Please remove it first." >&2
-		echo "You can use the cleanup_old.sh script for this purpose." >&2
-		exit 1
+		echo
+		read -p "There already exists an oldir. Do you want to remove it? (y/N)" RES
+		[ -z "$RES" ] && RES=n
+		if [ "$RES" = y ]; then
+			rm -r "$TDIR.old" || exit 1
+		else
+			echo "Quitting ..."
+			exit 1
+		fi
 	fi
 	mv "$TDIR" "$TDIR.old" || exit 1
 fi
