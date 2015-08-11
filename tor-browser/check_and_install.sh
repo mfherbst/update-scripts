@@ -51,7 +51,7 @@ fi
 
 if [ "$REMOVE_OLD" = y ]; then
 	rm -r "$TDIR.old" || exit 1
-else
+elif [[ -d "$TDIR.old" && -d "$TDIR" ]]; then
 	echo "There is a $TDIR.old in the way. Quitting ..." >&2
 	exit 1
 fi
