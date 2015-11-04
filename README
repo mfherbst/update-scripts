@@ -5,4 +5,5 @@ The repo currently contains stuff for the following:
 	tor-browser	Downloads and installs the (en-US) tor browser
 			into the users HOME directory.
 	tor		Downloads the current tor source code tarball
+	global		Downloads the current global source code tarball
 

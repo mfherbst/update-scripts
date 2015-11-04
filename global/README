@@ -1,0 +1,4 @@
+Scripts to download the GNU global source code
+
+download_current.sh	download the current GNU global source code tarball
+			and check it for integrity
